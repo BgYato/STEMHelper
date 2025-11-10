@@ -10,8 +10,6 @@ export default function RankingCausas() {
 
   useEffect(() => {
     reportService.getRankingCausas().then((res) => {
-      console.log(res);
-      
       const sorted = [...res].sort((a, b) => b.porcentaje - a.porcentaje);
       setData(sorted);
     });
@@ -22,7 +20,13 @@ export default function RankingCausas() {
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={data} dataKey="total_casos" nameKey="causa" outerRadius={100} label>
+            <Pie
+              data={data}
+              dataKey="total_casos"
+              nameKey="causa"
+              outerRadius={100}
+              label
+            >
               {data.map((_, i) => (
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
@@ -33,7 +37,7 @@ export default function RankingCausas() {
       </div>
 
       <table className="w-full text-sm border-collapse border border-gray-200 mt-4">
-        <thead className="bg-gray-100">
+        <thead className="bg-[#234C6A] text-white">
           <tr>
             <th className="border px-2 py-1">Causa</th>
             <th className="border px-2 py-1">Casos</th>
@@ -42,10 +46,15 @@ export default function RankingCausas() {
         </thead>
         <tbody>
           {data.map((row, i) => (
-            <tr key={i} className="text-center hover:bg-gray-50">
+            <tr
+              key={i}
+              className="text-center hover:bg-[#132736] cursor-pointer"
+            >
               <td className="border px-2 py-1">{row.causa}</td>
               <td className="border px-2 py-1">{row.total_casos}</td>
-              <td className="border px-2 py-1 font-semibold text-blue-700">{row.porcentaje}%</td>
+              <td className="border px-2 py-1 font-semibold">
+                {row.porcentaje}%
+              </td>
             </tr>
           ))}
         </tbody>

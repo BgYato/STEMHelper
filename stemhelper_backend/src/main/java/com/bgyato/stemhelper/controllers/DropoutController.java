@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/dropouts")
 @AllArgsConstructor
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin("*")
 public class DropoutController {
 
     private final DropoutServiceImpl dropoutService;

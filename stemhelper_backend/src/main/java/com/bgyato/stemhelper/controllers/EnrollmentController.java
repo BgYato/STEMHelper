@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/enrollments")
 @AllArgsConstructor
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin("*")
 public class EnrollmentController {
 
     private final EnrollmentServiceImpl enrollmentService;

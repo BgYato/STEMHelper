@@ -11,7 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/reports")
 @AllArgsConstructor
-@CrossOrigin("http://localhost:5173/")
+@CrossOrigin("*")
 public class ReportController {
 
     private final ReportService reportService;
